@@ -9,4 +9,9 @@
 
 import sys
 n = int(sys.stdin.readline())
-data = [sys.stdin.readline().strip() for i in range(n)]
+data = []
+for i in range(n) :
+    data.append(int(sys.stdin.readline()))
+data.sort()
+for j in data :
+    print(j)
