@@ -2,7 +2,7 @@ import sys
 # data = list(map(int,sys.stdin.readline().split()))
 # print(data)
 
-# a, b = int(input()).split()
+# a, b = int(input()).split() #
 # a, b = int(input().split()) # int 함수는 리스트는 정수형으로 바꾸어줄 수가 없다.
 
 # print(a)
