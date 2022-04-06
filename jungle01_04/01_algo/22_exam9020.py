@@ -12,12 +12,28 @@
 # 출력
 # 각 테스트 케이스에 대해서 주어진 n의 골드바흐 파티션을 출력한다. 출력하는 소수는 작은 것부터 먼저 출력하며, 공백으로 구분한다.
 
-# 예제 입력 1
-# 3
-# 8
-# 10
-# 16
-# 예제 출력 1
-# 3 5
-# 5 5
-# 5 11
+from sys import stdin
+
+T=int(stdin.readline()) #1. 테스트 케이스 개수를 받는다 = T
+
+def prime(number) : #2. 소수를 판별하는 함수를 만든다
+    if number < 2 :
+        return "No"
+
+    for j in range(2, int(number**0.5)+1) :
+        if number % j == 0: # number을 2부터 number-1까지 나눈 나머지가 0이 나오면 소수가 아님
+            return "No"
+    return "Yes"
+
+for i in range(T) :
+    n = int(stdin.readline()) #3. 값을 입력받아 n으로 지정하고,
+    a = int(n / 2) #3. 반절 값을 시작으로 하나씩 줄여나갈 변수를 지정.
+    b = int(n / 2) #3. 반절 값을 시작으로 하나씩 늘여나갈 변수를 지정.
+
+    for k in range(int(n/2)) : #4. n 전체가 아닌 반절값만 증명하면 OK
+        if prime(a) == "Yes" and prime(b) == "Yes" : #4-1. a,b 둘다 소수일 경우 Yes 출력
+            print(a ,b)
+            break
+        else: #4-2. 아닐 경우 변수의 차이를 두어 확인
+            a = a - 1
+            b = b + 1

@@ -21,17 +21,16 @@
 
 n = int(input())
 
-queen = [0] * n
+row = [0] * n
 result = 0
 
 def promising(x):
 
     for i in range(x):
-         if queen[x] == queen[i] or abs(queen[x] - queen[i]) == x - i:
+         if row[x] == row[i] or abs(row[x] - row[i]) == x - i:
                 return False
 
     return True
-
 
 def dfs(x):
 
@@ -39,12 +38,12 @@ def dfs(x):
         if n == 0:
                 return
         else:
-         global result
-         result += 1
-         return
+            global result
+            result += 1
+            return
 
     for i in range(n):
-        queen[x] = i
+        row[x] = i
         if promising(x):
             dfs(x+1)
 
