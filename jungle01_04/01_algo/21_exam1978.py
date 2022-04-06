@@ -11,6 +11,7 @@
 n = int(input())
 numbers = map(int, input().split())
 sosu = 0
+
 for num in numbers:
     error = 0
     if num > 1 :

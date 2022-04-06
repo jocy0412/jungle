@@ -16,6 +16,7 @@
 
 import sys
 a = int(sys.stdin.readline())
+
 for i in range(a) :
     result = ''
     data = list(map(str,sys.stdin.readline().split()))
@@ -25,11 +26,6 @@ for i in range(a) :
         result += (i * int(number))
     print(result)
 
-
-    # for i in text :ß
-    #     for j in range(len(text)) :
-    #         result += text[i]
-    # print(result)
 
 
 

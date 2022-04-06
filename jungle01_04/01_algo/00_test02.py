@@ -10,16 +10,21 @@
 
 # 출력
 # 첫째 줄에 상수의 대답을 출력한다.
+# num_list = ['1', '1', '0']
+# print(num_list[0])
+# print(num_list[1])
+# print(num_list[2])
+# print(type(num_list[0]))
+# print(type(num_list[1]))
+# print(type(num_list[2]))
+# print(num_list[0]-num_list[1])
+# print(num_list[1]-num_list[2])
 
-import sys
-data = list(map(str,sys.stdin.readline().split()))
+# a = 2
+# a = list(map(int, str(a)))
+# print(a)
 
-reverse_data = []
-for i in range(len(data)) :
-    reverse_number = ''
-    for j in data[i] :
-        reverse_number = j + reverse_number
-    reverse_data.append(reverse_number)
+n = 4
+row = [0] * n
 
-print(max(reverse_data))
-# data = ['123', '45']
+print(row)
