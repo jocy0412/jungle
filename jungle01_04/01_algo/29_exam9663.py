@@ -10,12 +10,12 @@
 # 기본 가정 : 같은 행(row)에는 퀸을 놓지 않는다.
 # 유망 함수의 구현
 # 같은 열이나 같은 대각선에 놓이는지를 확인하면된다.
-# 조건1 : col[i] : i번째 행(row)에서 퀸이 놓여 있는 열(column)위치
-#        col[k] : k번째 행(row)에서 퀸이 놓여 있는 열(column)위치
-#        col[i] == col[k] 같은 열에 놓이게 되므로 유망하지 않다
+# 조건1 : row[x] : x번째 행(row)에서 퀸이 놓여 있는 열(column)위치
+#        row[i] : i번째 행(row)에서 퀸이 놓여 있는 열(column)위치
+#        row[x] == row[i] 같은 열에 놓이게 되므로 유망하지 않다
 
 # 조건2 : 왼쪽에서 위협하하는 퀸에 대해서, 열에서의 차이는 행에서의 차이와 같다
-#        col[i] - col[k] == i - k
+#        row[x] - row[i] == x - i
 #        오른쪽에서 위협하는 퀸에 대해서, 열에서의 차이는 행에서의 차이의 마이너스와 같다.
 
 
@@ -35,12 +35,10 @@ def promising(x):
 def dfs(x):
 
     if x == n:
-        if n == 0:
-                return
-        else:
-            global result
-            result += 1
-            return
+        global result
+        result += 1
+
+        return
 
     for i in range(n):
         row[x] = i
