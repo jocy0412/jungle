@@ -15,26 +15,19 @@
 # 출력
 # 가능한 최대 팀 목표레벨 T를 출력한다.
 
-# 목표 레벨보다 낮은 캐릭터들의 레벨 올려주는 갯수 체크
 
-N, K = map(int, input().split()) # 3, 10
-char = sorted([int(input()) for _ in range(N)]) # 10 15 20
-start, end = min(char), max(char) + K # 10, 30
-res = 0
+# input 입력 받기
+import sys
+N, K = map(int,sys.stdin.readline().split())
+char = [int(sys.stdin.readline().strip()) for i in range(N)]
+char.sort()
+k = 0
+result = 0
 
-def count(char, m):
-    t = 0
-    for n in char:
-        if n >= m:
-            break
-        t += m-n # t는 레벨총합의 갯수
-    return t
-
-while start <= end: # start: 10->15(2)->18(3), end: 30->19(1)->18(4)->17(5)
-    m = (start+end)//2 # m은 target 레벨값 20 -> 14(1) -> 17(2) -> 18(3)
-    if count(char, m) <= K:
-        res = m # 17(2)
-        start = m + 1
-    else:
-        end = m-1
-print(res)
+while 0 < K :
+    target = char.index(min(char))
+    char[target] = char[target] + 1
+    K = K - 1
+    result = min(char)
+    if K == 1 :
+        print(result)

@@ -25,36 +25,40 @@
 
 #3
 
-n,c = map(int,input().split())
+# N = 5, 집의 개수
+# C = 3, 공유기의 갯수
+# house = [1,2,4,8,9] 집의 좌표
 
-house = []
-for _ in range(n):
-    x = int(input())
-    house.append(x)
-
+import sys
+N,C = map(int,input().split()) # 5 3
+house = [int(sys.stdin.readline().strip()) for i in range(N)]
 house.sort()
 
-# 좌표값의 최소값
+# 거리 범위
 start = 1
 # 가장 높은 좌표와 가장 낮은 좌표의 차이
 end = house[-1] - house[0]
 result = 0
 
-while (start <= end):
+while start <= end :
     mid = (start + end)//2 # 해당 gap
     old = house[0]
     count = 1
 
-    for i in range(1, len(house)): # 전체 집 index 값 호출
-        if house[i] >= old + mid: # 설치할 집의 위치 >= 마지막 공유기 설치한 위치 + 가장 인접한 거리
+    for i in range(1, N) :  # 여기
+        if house[i] >=  old + mid :
             count += 1
             old = house[i]
 
-    if count >= c :
+    if count >= C :
         start = mid + 1
-        result = mid
-    else:
+        result = mid # 여기
+    else :
         end = mid - 1
 
 print(result)
+
+
+
+
 
