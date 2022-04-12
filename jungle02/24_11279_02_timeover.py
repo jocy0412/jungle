@@ -17,18 +17,18 @@
 # 입력에서 0이 주어진 회수만큼 답을 출력한다.
 # 만약 배열이 비어 있는 경우인데 가장 큰 값을 출력하라고 한 경우에는 0을 출력하면 된다.
 import sys
-import heapq
+N = int(input())
+# print(data)
 
-heap = []
-n = int(sys.stdin.readline())
-for _ in range(n):
-  m = int(sys.stdin.readline())
-  if m == 0:
-    if len(heap) == 0:
-      print(0)
-    else:
-      print((-1)*heapq.heappop(heap))
-  else:
-    heapq.heappush(heap, (-1)*m)
+result = []
+for i in range(N) :
+    x = int(sys.stdin.readline().strip())
+    if x == 0 :
+        if len(result) == 0:
+            print(0)
+        else :
+            print(max(result))
+            result.remove(max(result))
+    else :
+        result.append(x)
 
-# 최대힙은 최소힙 구현에서 입력되는 수들에 -1 만 곱해주는 방식으로 간단하게 구현
