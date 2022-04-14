@@ -8,20 +8,24 @@
 # 첫째 줄부터 N개의 줄에 행렬 A와 B를 곱한 행렬을 출력한다. 행렬의 각 원소는 공백으로 구분한다.
 
 
-N,M = map(int,input().split())
-matrix1 = []
+N,M = map(int,input().split()) # 3 2
+A = []
 for _ in range(N):
-    matrix1.append(list(map(int,input().split())))
-Mb,K = map(int,input().split())
-matrix2=[]
-for _ in range(Mb):
-    matrix2.append(list(map(int,input().split())))
-
+    A.append(list(map(int,input().split())))
+    # 1 2
+    # 3 4
+    # 5 6
+M,K = map(int,input().split()) # 2 3
+B = []
+for _ in range(M):
+    B.append(list(map(int,input().split())))
+    # -1 -2  0
+    #  0  0  3
 result = [[0 for _ in range(K)] for _ in range(N)]
 for n in range(N):
     for k in range(K):
         for m in range(M):
-            result[n][k] += matrix1[n][m] * matrix2[m][k]
+            result[n][k] += A[n][m] * B[m][k]
 
 for row in result:
     for num in row:

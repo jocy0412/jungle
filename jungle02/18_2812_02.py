@@ -11,20 +11,23 @@
 
 import sys
 
-N,K = map(int,sys.stdin.readline().split())
-nums = list(map(int,sys.stdin.readline().strip()))
+N, K = map(int,sys.stdin.readline().split()) # 4 2
+nums = list(map(int,sys.stdin.readline().strip())) # 1924를 넣으면 [1,9,2,4] 로 추출
 
 result = []
-delNum = K
+count = K
 
-for i in range(N):
-    while delNum>0 and result:
+for i in range(N) :
+    while 0 < count and result :
         if result[len(result)-1] < nums[i]:
             result.pop()
-            delNum-=1
-        else:
+            count -= 1
+        else :
             break
     result.append(nums[i])
 
-for i in range(N-K):
-    print(result[i],end="")
+# for j in result : # 전부 9일경우 K가 소모되지 않아서 범위를 지정해주는게 필요
+#     print(j,end='')
+
+for j in range(N-K):
+    print(result[j],end="")

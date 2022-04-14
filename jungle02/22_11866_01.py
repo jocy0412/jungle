@@ -12,8 +12,8 @@
 # 예제와 같이 요세푸스 순열을 출력한다.
 
 import sys
-N, K = map(int,sys.stdin.readline().split())
-arr = [i for i in range(1, N+1)]
+N, K = map(int,sys.stdin.readline().split()) # 7 3
+arr = [i for i in range(1, N+1)] # 1 2 3 4 5 6 7
 answer = []
 num = 0 # 제거할 인덱스 번호
 
