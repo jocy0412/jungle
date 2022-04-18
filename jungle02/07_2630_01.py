@@ -19,20 +19,20 @@
 # input 입력 받기
 import sys
 N = int(sys.stdin.readline())
-paper = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+image = [sys.stdin.readline().strip() for _ in range(N)]
 
 result = []
 
-def solution(x, y, N) :
-  color = paper[x][y]
+def recursion(N, x, y) :
+  color = image[x][y]
   for i in range(x, x+N) :
     for j in range(y, y+N) :
-      if color != paper[i][j] :
+      if color != image[i][j] :
         # 왼쪽에서 오른쪽으로 위에서 아래 순서로 1,2,3,4
-        solution(x, y, N//2) # 1
-        solution(x+N//2, y, N//2) # 2
-        solution(x, y+N//2, N//2) # 3
-        solution(x+N//2, y+N//2, N//2) # 4
+        recursion(N//2, x, y) # 1
+        recursion(N//2, x+N//2, y) # 2
+        recursion(N//2, x, y+N//2) # 3
+        recursion(N//2, x+N//2, y+N//2) # 4
         return
   if color == 0 :
     result.append(0)
@@ -40,6 +40,6 @@ def solution(x, y, N) :
     result.append(1)
 
 
-solution(0,0,N)
+recursion(N, 0, 0)
 print(result.count(0))
 print(result.count(1))

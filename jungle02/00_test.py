@@ -4,7 +4,11 @@
 
 # print(paper)
 
-a = (10*10) % 12
-c = 12
-print(a)
-print(c)
+explosion = 'C4'
+
+print(len(explosion))
+stk = ['m',"i","r","k","o","v","C","4"]
+print(len(stk))
+print(stk[len(stk)-len(explosion):])
+
+print(''.join(stk))
