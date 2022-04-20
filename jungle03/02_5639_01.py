@@ -21,8 +21,8 @@ def postorder(left,right) :
             if num_list[left] < num_list[i]: # left값 < i 값
                 mid = i
                 break
-        postorder(left + 1,mid - 1) #
+        postorder(left + 1,mid - 1) # 왼쪽으로 들어가기
         postorder(mid,right) # 우측으로 들어가기
-        print(num_list[left]) # 왼쪽 들어가기
+        print(num_list[left]) # 출력
 
 postorder(0,len(num_list)-1)

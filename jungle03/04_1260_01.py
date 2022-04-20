@@ -31,9 +31,10 @@ for _ in range(M) :
 
 for i in range(1, N+1):
     graph[i].sort()
-
+# DFS
 visited = [False] * (N + 1)
 dfs(V)
-print()
+
+# BFS
 visited = [False] * (N + 1)
 bfs(V)
