@@ -65,8 +65,8 @@ while queue :
             continue
 
         # 물
-        if matrix[x][y] == '*' : # 돌과 도착점에 가지 않는 경우
-            if matrix[nx][ny] == '.' or matrix[nx][ny] == 'S' : # 이동경로나 고슴도치를 덮쳐도 된다.
+        if matrix[x][y] == '*' :
+            if matrix[nx][ny] == '.' or matrix[nx][ny] == 'S' : # 고슴도치가 먼저 움직이기 때문에 물이 이동경로나 고슴도치를 덮쳐도 된다.
                 matrix[nx][ny] = '*'
                 queue.append([nx, ny])
 
