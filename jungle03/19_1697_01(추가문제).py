@@ -24,7 +24,7 @@ def bfs() :
 
     while queue:
         x = queue.popleft()
-        if x == K <= MAX and not dist[nx]:
+        if x == K :
             print(dist[x])
             break
         for nx in (x - 1, x + 1 , x * 2): # nx = 4, 6, 10
