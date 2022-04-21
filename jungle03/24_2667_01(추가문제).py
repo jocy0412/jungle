@@ -2,11 +2,9 @@
 
 from collections import deque
 import queue
-# 노드의 개수와 간선의 개수 입력
+
 N = int(input())
 matrix = [input().strip() for _ in range(N)]
-
-# 각 노드에 연결된 간선 정보를 담기 위한 연결 리스트 초기화
 visited = [[0] * (N)  for _ in range(N)]
 
 # 좌/우/위/아래 방향 이동
