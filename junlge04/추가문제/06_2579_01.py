@@ -15,6 +15,6 @@ else:
 
     for i in range(3, N+1):
         dp[i] = max(dp[i-3]+stair[i-1]+stair[i], dp[i-2]+stair[i])
-        #dp[3] = 0 + 15 + 25 , 10 + 25
+        #dp[3] = 0 + 20 + 25 , 10 + 25
 
     print(dp[N])
