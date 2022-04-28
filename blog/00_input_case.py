@@ -16,6 +16,6 @@
 
 # input 받는 케이스에 앞에 숫자 추가하고 싶을 때
 # A = list('0''1''2''3''4')
-# col = list(map(int,list('0''1''2''3''4')))
-col = list(map(int,list("0"+input().strip())))
+col = list(map(int,list('0''1''2''3''4')))
+# col = list(map(int,list("0"+input().strip())))
 print(col)
