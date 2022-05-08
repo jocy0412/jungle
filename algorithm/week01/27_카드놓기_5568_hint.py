@@ -1,31 +1,42 @@
+# 상근이는 카드 n(4 ≤ n ≤ 10)장을 바닥에 나란히 놓고 놀고있다.
+# 각 카드에는 1이상 99이하의 정수가 적혀져 있다. 상근이는 이 카드 중에서 k(2 ≤ k ≤ 4)장을 선택하고,
+# 가로로 나란히 정수를 만들기로 했다. 상근이가 만들 수 있는 정수는 모두 몇 가지일까?
+
+# 예를 들어, 카드가 5장 있고, 카드에 쓰여 있는 수가 1, 2, 3, 13, 21라고 하자.
+# 여기서 3장을 선택해서 정수를 만들려고 한다. 2, 1, 13을 순서대로 나열하면 정수 2113을 만들 수 있다.
+# 또, 21, 1, 3을 순서대로 나열하면 2113을 만들 수 있다. 이렇게 한 정수를 만드는 조합이 여러 가지 일 수 있다.
+
+# n장의 카드에 적힌 숫자가 주어졌을 때, 그 중에서 k개를 선택해서 만들 수 있는 정수의 개수를 구하는 프로그램을 작성하시오.
+
 # 재귀, 백트래킹, dfs, bfs 기초라 구조를 이해하면 좋을 것 같음
 
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-k = int(input())
-cards = [int(input()) for _ in range(n)]
-visited = [0 for _ in range(n)]
-tmp = []
+n = int(input()) # 4
+k = int(input()) # 2
+cards = [int(input()) for _ in range(n)] # 1, 2, 12, 1
+
+visited = [0 for _ in range(n)] # [0],[0],[0],[0]
+temp = []
 answer = []
 
 def dfs(depth):
     if depth == k:
-        answer.append("".join(map(str, tmp)))
+        answer.append("".join(map(str, temp)))
         return
-    for i in range(n):
+    for i in range(n): # 0, 1, 2, 3
         if not visited[i]:
             # visited 해주는 이유? : 재귀를 타고 들어갔을 때 **i가 0에서부터 다시 시작되므로 (새로운 함수를 호출했으니까)
             # 이미 방문한 것은 방문하지 않기 위해
 
             # 재귀 한 번 타고 들어갈 때 재귀 전에 써놓은 것들은 해제해주지 않는 이상 계속 유지됨!
             visited[i] = 1
-            tmp.append(cards[i])
+            temp.append(cards[i]) # 1, 2, 12, 1
 
             dfs(depth+1)
 
-            tmp.pop() # depth가 k-1일 때로 다시 돌아옴 (재귀가 끝나고 그 함수를 호출했던 단계에서 초기화해주는 것임)
+            temp.pop() # depth가 k-1일 때로 다시 돌아옴 (재귀가 끝나고 그 함수를 호출했던 단계에서 초기화해주는 것임)
             # 그리고 depth가 k-1일 때에서 계속 재귀를 도는 것 (for문)
 						# 어차피 for문에서 다음 원소가 들어와서 초기화해줘도 해당레벨에선 재방문 X
             # for문이 종료되면 리턴값이 None인 상태로 다시 첫 레벨로 돌아가서 for문에서 i+1 일 때로 재귀가 똑같이 실행됨
