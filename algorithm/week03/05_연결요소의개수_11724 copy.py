@@ -6,7 +6,7 @@ input = sys.stdin.readline
 N, M = map(int, input().split()) # 6 5
 graph = [[] for _ in range(N + 1)] # 노드의 연결 요소를 입력, 노드 번호별 공간이 필요하므로 2차원 배열 사용
 
-visited = [False] * (N + 1) # 노드별로 방문여부만 체크하면 되기 때문에 1차원 배열 사용
+visited = [False] * (N + 1) # 노드별로 방문여부만 체크하면 되기 때문에 1차원 배열 사용!
 
 for i in range(M):
     a, b = map(int, input().split())
