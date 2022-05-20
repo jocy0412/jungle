@@ -17,8 +17,8 @@ count = 0
 def dfs(v): # 연결된 그룹의 노드들 방문
     visited[v] = True
     for i in graph[v]:
-        if not visited[i]:
-            dfs(i)
+        if not visited[i]: # visited index가 graph의 노드 번호가 되고 그 번호에 방문하지 않았다면
+            dfs(i) #  dfs를 실행하여 방문 처리
 
 for j in range(1, len(visited)) :
     if visited[j] == False :

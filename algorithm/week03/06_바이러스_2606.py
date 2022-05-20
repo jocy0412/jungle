@@ -1,6 +1,6 @@
 import sys
 input = sys.stdin.readline
-from collections import deque
+
 def dfs(v):
     visited[v] = True
     for i in graph[v]:
@@ -10,14 +10,14 @@ def dfs(v):
 T = int(input())
 N = int(input())
 
-graph = [[] for _ in range(T + 1)]
+graph = [[] for _ in range(T + 1)] # 빈 graph 영역 추가
 
-for _ in range(N) :
+for _ in range(N) : # 노드별로 연결 요소를 입력
     a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
 
-for i in range(1, T + 1) :
+for i in range(1, T + 1) : # 노드 별로 무작위로 데이터값이 들어갔을 수도 있기 때문에 순서를 정렬
     graph[i].sort()
 
 visited = [False] * (T + 1)
