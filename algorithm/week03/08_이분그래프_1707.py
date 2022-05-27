@@ -11,7 +11,7 @@ def dfs(start, group) :
         if not visited[i] :
             if not dfs(i, -group) :
                 return False
-        elif visited[i] == group :
+        elif visited[i] == group : # 방문한 적이 있는데 방문한 적이 있는 곳과 연결노드의 group과 같다면 False 리턴
             return False
 
     return True
